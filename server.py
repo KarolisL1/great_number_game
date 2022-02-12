@@ -14,12 +14,21 @@ def process_guess():
     print(f'User guess: {request.form["guess"]}')
     print(f"computer guess {session['computer_num']}")
 
-    if int(request.form['guess']) == session['computer_num']:
-        session['result'] = "You win!"
+    if int(request.form['guess']) < session['computer_num']:
+        session['result'] = "Too low!"
+        print("Too low!")
+        too_low = True
+        # session[too_low] = too_low
     elif int(request.form['guess']) > session['computer_num']:
         session['result'] = "Too high!"
+        print("Too high!")
+        too_high = True
+        # session['too_high'] = too_high
     else:
-        session['result'] = "Too low!"
+        session['result'] = "You win!"
+        print("You win!")
+        is_correct = True
+        # session[is_correct] = is_correct
 
     return redirect('/results')
 

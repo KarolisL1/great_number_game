@@ -16,20 +16,16 @@ def process_guess():
 
     if int(request.form['guess']) < session['computer_num']:
         session['result'] = "Too low!"
-        print("Too low!")
-        too_low = True
-        # session[too_low] = too_low
+        # print("Too low!")
+        # too_low = True
     elif int(request.form['guess']) > session['computer_num']:
         session['result'] = "Too high!"
-        print("Too high!")
-        too_high = True
-        # session['too_high'] = too_high
+        # print("Too high!")
+        # too_high = True
     else:
         session['result'] = "You win!"
-        print("You win!")
-        is_correct = True
-        # session[is_correct] = is_correct
-
+        # print("You win!")
+        # is_correct = True
     return redirect('/results')
 
 @app.route('/results')
